@@ -5,7 +5,7 @@ const Navbar = () => {
   const { token, logout } = useAuth();
 
   return (
-    <nav className="bg-[#111111] border-b border-orange-500 px-6 py-4 flex items-center justify-between">
+    <nav className="bg-white border-b border-orange-500 px-6 py-4 flex items-center justify-between">
       <Link
         to="/"
         className="text-orange-500 font-bold text-xl tracking-widest"
@@ -18,13 +18,13 @@ const Navbar = () => {
           <>
             <Link
               to="/create-event"
-              className="text-white hover:text-orange-500 transition"
+              className="text-gray-800 hover:text-orange-500 transition"
             >
               Create Event
             </Link>
             <button
               onClick={logout}
-              className="text-white hover:text-orange-500 transition"
+              className="text-gray-800 hover:text-orange-500 transition"
             >
               Logout
             </button>
