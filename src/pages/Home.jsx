@@ -36,7 +36,10 @@ const Home = () => {
             className="bg-[#111111] border border-orange-500 rounded p-4 cursor-pointer hover:bg-[#1a1a1a] transition"
           >
             <h2 className="text-white font-bold text-lg">{event.title}</h2>
-            <p className="text-gray-400 text-sm mt-1">{event.date}</p>
+            <p className="text-gray-400 text-sm mt-1">
+              {new Date(event.date).toLocaleDateString("de-DE")}
+            </p>
+            <p className="text-orange-400 text-sm mt-1">📍 {event.location}</p>
             <p className="text-gray-300 text-sm mt-2 line-clamp-2">
               {event.description}
             </p>
