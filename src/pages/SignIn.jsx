@@ -23,9 +23,7 @@ const SignIn = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       if (!response.ok) throw new Error("Login fehlgeschlagen.");
-
       const data = await response.json();
       login(data.token);
       navigate("/");
@@ -35,36 +33,49 @@ const SignIn = () => {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto mt-10">
-      <h1 className="text-3xl font-bold text-orange-500 mb-6 tracking-widest">
-        SIGN IN
-      </h1>
-
-      {error && <p className="text-red-500 mb-4">{error}</p>}
-
-      <div className="bg-[#111111] border border-orange-500 rounded p-6 flex flex-col gap-4">
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          className="bg-[#0a0a0a] border border-gray-600 text-white rounded px-4 py-2 focus:outline-none focus:border-orange-500"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          className="bg-[#0a0a0a] border border-gray-600 text-white rounded px-4 py-2 focus:outline-none focus:border-orange-500"
-        />
-        <button
-          onClick={handleSubmit}
-          className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded transition"
-        >
-          LOGIN
-        </button>
+    <div className="min-h-screen bg-[#0a0a0f] flex items-center justify-center px-8">
+      <div className="w-full max-w-md">
+        <div className="mb-8 text-center">
+          <span className="text-[#ff5500] font-black text-3xl">FRAG</span>
+          <span className="text-white font-black text-3xl">.GG</span>
+          <p className="text-gray-500 text-sm mt-2">Sign in to your account</p>
+        </div>
+        {error && (
+          <p className="text-red-500 mb-4 text-sm text-center">{error}</p>
+        )}
+        <div className="bg-[#111118] border border-[#ffffff10] rounded-lg p-8 flex flex-col gap-4">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+            className="bg-[#0a0a0f] border border-[#ffffff15] text-white rounded px-4 py-3 focus:outline-none focus:border-[#ff5500] transition-colors duration-200 placeholder-gray-600"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            className="bg-[#0a0a0f] border border-[#ffffff15] text-white rounded px-4 py-3 focus:outline-none focus:border-[#ff5500] transition-colors duration-200 placeholder-gray-600"
+          />
+          <button
+            onClick={handleSubmit}
+            className="bg-[#ff5500] hover:bg-[#cc4400] text-white font-bold py-3 rounded transition-colors duration-200"
+          >
+            SIGN IN
+          </button>
+          <p className="text-gray-600 text-sm text-center">
+            No account?{" "}
+            <span
+              onClick={() => navigate("/signup")}
+              className="text-[#ff5500] cursor-pointer hover:text-orange-400"
+            >
+              Sign Up
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );
