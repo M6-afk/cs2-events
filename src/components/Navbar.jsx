@@ -33,13 +33,13 @@ const Navbar = () => {
           <>
             <Link
               to="/signin"
-              className="text-white hover:text-orange-500 transition"
+              className="text-gray-800 hover:text-orange-500 transition"
             >
               Sign In
             </Link>
             <Link
               to="/signup"
-              className="text-white hover:text-orange-500 transition"
+              className="text-gray-800 hover:text-orange-500 transition"
             >
               Sign Up
             </Link>
